@@ -35,5 +35,4 @@ phases:
       - kubectl get pods -A
       - helm list -n ion
       - helm template ion -n ion . --values=dev3-in-values.yaml
-artifacts:
-  files: build.json
+
