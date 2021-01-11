@@ -33,6 +33,6 @@ phases:
       - export AWS_EXPIRATION=$(echo ${CREDENTIALS} | jq -r '.Credentials.Expiration')
       - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME
       - kubectl get pods -A
-      - helm list -n ion
+      - helm list 
       - helm template ion -n ion . --values=dev3-in-values.yaml
 
