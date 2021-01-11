@@ -10,10 +10,9 @@ phases:
        - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
        - chmod +x kubectl
        - mv ./kubectl /usr/local/bin/kubectl
-       - curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
-       - sudo apt-get install apt-transport-https --yes
-       - echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
-       - apt-get install helm
+       - curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+       - chmod 700 get_helm.sh
+       - ./get_helm.sh
   pre_build:
       commands:
         - TAG="$REPOSITORY_NAME.$REPOSITORY_BRANCH.$ENVIRONMENT_NAME.$(date +%Y-%m-%d.%H.%M.%S).$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
