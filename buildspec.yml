@@ -33,5 +33,5 @@ phases:
       - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME
       - kubectl get pods -A
       - helm list 
-      - helm repo add test https://ppalisetti.github.io/testing-helm/
+      - helm repo add helm-testing https://ppalisetti.github.io/testing-helm/
 
